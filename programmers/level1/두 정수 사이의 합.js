@@ -1,3 +1,5 @@
+export const getMin = (num1, num2) => {};
+
 export const getMax = (num1, num2) => {
   return Math.max(num1, num2);
 };

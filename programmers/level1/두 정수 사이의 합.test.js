@@ -1,4 +1,4 @@
-import { solution, makeNewArray, getMax } from "./두 정수 사이의 합";
+import { solution, makeNewArray, getMax, getMin } from "./두 정수 사이의 합";
 
 describe("두 정수 사이의 합 test", () => {
   it("test solution", () => {
@@ -21,5 +21,10 @@ describe("두 정수 사이의 합 test", () => {
     expect(getMax(3, 5)).toEqual(5);
     expect(getMax(3, 3)).toEqual(3);
     expect(getMax(5, 3)).toEqual(5);
+  });
+  it("test getMin", () => {
+    expect(getMin(3, 5)).toEqual(3);
+    expect(getMin(3, 3)).toEqual(3);
+    expect(getMin(5, 3)).toEqual(3);
   });
 });
