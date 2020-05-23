@@ -15,6 +15,5 @@ export const makeNewArray = (start, end) => {
 };
 
 export function solution(a, b) {
-  const array = Array.of(a, b).sort((a, b) => a - b);
-  return makeNewArray(array[0], array[1]).reduce((a, c) => a + c);
+  return makeNewArray(getMin(a, b), getMax(a, b)).reduce((a, c) => a + c);
 }
