@@ -1,3 +1,11 @@
+export const makeNewArray = (start, end) => {
+  const newArray = [];
+  for (let i = start; i <= end; i++) {
+    newArray.push(i);
+  }
+  return newArray;
+};
+
 export function solution(a, b) {
   const array = Array.of(a, b).sort((a, b) => a - b);
   const newArray = [];
