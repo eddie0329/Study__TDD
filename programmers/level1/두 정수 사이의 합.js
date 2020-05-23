@@ -1,3 +1,5 @@
+export const getMax = (num1, num2) => {};
+
 export const makeNewArray = (start, end) => {
   const newArray = [];
   for (let i = start; i <= end; i++) {
