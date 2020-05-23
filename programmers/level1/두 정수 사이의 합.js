@@ -15,5 +15,7 @@ export const makeNewArray = (start, end) => {
 };
 
 export function solution(a, b) {
-  return makeNewArray(getMin(a, b), getMax(a, b)).reduce((a, c) => a + c);
+  return makeNewArray(getMin(a, b), getMax(a, b)).reduce(
+    (accumulator, currentValue) => accumulator + currentValue
+  );
 }
