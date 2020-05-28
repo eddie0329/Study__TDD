@@ -9,7 +9,7 @@ export const findElement = (array, index) => {
 };
 export function solution(array, commands) {
   const answer = [];
-  let start, end, find, temp;
+  let start, end, find;
   commands.forEach((command) => {
     command.forEach((direction, index) => {
       if (index === 0) {
