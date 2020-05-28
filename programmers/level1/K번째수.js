@@ -1,7 +1,9 @@
 export const sliceArray = (array, start, end) => {
   return array.slice(start, end);
 };
-export const sortArray = (array) => {};
+export const sortArray = (array) => {
+  return array.sort((a, b) => a - b);
+};
 export function solution(array, commands) {
   const answer = [];
   let start, end, find, temp;
