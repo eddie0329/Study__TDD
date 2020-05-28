@@ -1,3 +1,5 @@
+export const sliceArray = (array, start, end) {}
+
 export function solution(array, commands) {
   const answer = [];
   let start, end, find, temp;

@@ -1,4 +1,4 @@
-import { solution } from "./K번째수";
+import { solution, sliceArray } from "./K번째수";
 
 describe("K번째수 test", () => {
   it("solution test", () => {
@@ -11,5 +11,9 @@ describe("K번째수 test", () => {
     const answer = [5, 6, 3];
 
     expect(solution(array, commands)).toEqual(answer);
+  });
+
+  it("sliceArray test", () => {
+    expect(sliceArray([1, 2, 3], 0, 1)).toEqual([1, 2]);
   });
 });
