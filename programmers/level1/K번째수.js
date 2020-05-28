@@ -14,8 +14,7 @@ export function solution(array, commands) {
         find = direction - 1;
       }
     });
-    temp = array.slice(start, end);
-    temp.sort((a, b) => a - b);
+    temp = sliceArray(array, start, end).sort((a, b) => a - b);
     answer.push(temp[find]);
   });
   return answer;
