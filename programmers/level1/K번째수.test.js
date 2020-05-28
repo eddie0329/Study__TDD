@@ -14,6 +14,9 @@ describe("K번째수 test", () => {
   });
 
   it("sliceArray test", () => {
-    expect(sliceArray([1, 2, 3], 0, 1)).toEqual([1, 2]);
+    expect(sliceArray([1, 2, 3], 0, 1)).toEqual([1]);
+    expect(sliceArray([1, 2, 3], 0, 2)).toEqual([1, 2]);
+    expect(sliceArray([1, 2, 3], 1, 2)).toEqual([2]);
+    expect(sliceArray([1, 2, 3], 2, 3)).toEqual([3]);
   });
 });
