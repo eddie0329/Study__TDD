@@ -4,7 +4,7 @@ export const sliceArray = (array, start, end) => {
 export const sortArray = (array) => {
   return array.sort((a, b) => a - b);
 };
-export const find = (array, index) => {
+export const findElement = (array, index) => {
   return array[index];
 };
 export function solution(array, commands) {
@@ -20,8 +20,7 @@ export function solution(array, commands) {
         find = direction - 1;
       }
     });
-    temp = sortArray(sliceArray(array, start, end));
-    answer.push(temp[find]);
+    answer.push(findElement(sortArray(sliceArray(array, start, end)), find));
   });
   return answer;
 }
