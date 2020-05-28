@@ -1,4 +1,4 @@
-import { solution, sliceArray } from "./K번째수";
+import { solution, sliceArray, sortArray } from "./K번째수";
 
 describe("K번째수 test", () => {
   it("solution test", () => {
@@ -18,5 +18,11 @@ describe("K번째수 test", () => {
     expect(sliceArray([1, 2, 3], 0, 2)).toEqual([1, 2]);
     expect(sliceArray([1, 2, 3], 1, 2)).toEqual([2]);
     expect(sliceArray([1, 2, 3], 2, 3)).toEqual([3]);
+  });
+  it("sortArray test", () => {
+    expect(sortArray([3, 2, 1])).toEqual([1, 2, 3]);
+    expect(sortArray([3, 3, 1])).toEqual([1, 3, 3]);
+    expect(sortArray([2, 3, 1])).toEqual([1, 2, 3]);
+    expect(sortArray([2, 1, 3])).toEqual([1, 2, 3]);
   });
 });
