@@ -1,4 +1,4 @@
-import { solution, sliceArray, sortArray } from "./K번째수";
+import { solution, sliceArray, sortArray, findIndex } from "./K번째수";
 
 describe("K번째수 test", () => {
   it("solution test", () => {
@@ -24,5 +24,10 @@ describe("K번째수 test", () => {
     expect(sortArray([3, 3, 1])).toEqual([1, 3, 3]);
     expect(sortArray([2, 3, 1])).toEqual([1, 2, 3]);
     expect(sortArray([2, 1, 3])).toEqual([1, 2, 3]);
+  });
+  it("findIndex test", () => {
+    expect(findIndex([1, 2, 3], 2)).toEqual(3);
+    expect(findIndex([1, 2, 3], 1)).toEqual(2);
+    expect(findIndex([1, 2, 3], 0)).toEqual(1);
   });
 });

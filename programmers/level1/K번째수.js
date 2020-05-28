@@ -4,6 +4,9 @@ export const sliceArray = (array, start, end) => {
 export const sortArray = (array) => {
   return array.sort((a, b) => a - b);
 };
+export const find = (array, index) => {
+  return array[index];
+};
 export function solution(array, commands) {
   const answer = [];
   let start, end, find, temp;
