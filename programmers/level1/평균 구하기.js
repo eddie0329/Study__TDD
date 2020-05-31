@@ -7,5 +7,5 @@ export const addAccumulate = (accmulate, current) => {
 };
 
 export function solution(arr) {
-  return arr.reduce(addAccumulate) / arr.length;
+  return getAverage(arr.reduce(addAccumulate), arr);
 }
