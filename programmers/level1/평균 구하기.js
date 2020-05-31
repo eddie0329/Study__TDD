@@ -1,3 +1,7 @@
+export const getAverage = (sum, { length }) => {
+  return sum / length;
+};
+
 export const addAccumulate = (accmulate, current) => {
   return accmulate + current;
 };
