@@ -1,4 +1,4 @@
-import { map, filter, reduce, go, curry } from "@/lib/functional-lib.js";
+import { map, filter, reduce, go, curry, pipe } from "@/lib/functional-lib.js";
 
 // export const getAverage = (sum, { length }) => {
 //   return sum / length;
