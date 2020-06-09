@@ -12,8 +12,10 @@ import { map, filter, reduce, go, curry } from "@/lib/functional-lib.js";
 //   return getAverage(arr.reduce(addAccumulate), arr);
 // }
 
+const add = (accmulate, current) => accmulate + current;
+const addAll = reduce(add);
+
 export function solution(arr) {
-  const add = (a, c) => a + c;
-  const divide = (num) => num / arr.length;
-  return go(arr, reduce(add), divide);
+  const divideWithLength = (sum) => sum / arr.length;
+  return go(arr, addAll, divideWithLength);
 }
