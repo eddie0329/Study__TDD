@@ -19,22 +19,4 @@ describe('완주하지 못한 선수 test', () => {
     const result = 'mislav';
     expect(solution(participant, completion)).toBe(result);
   });
-
-  test('getPlayerCount test', () => {
-    const obj = { orange: 1, banana: 5 };
-    expect(getPlayerCount(obj, 'orange')).toBe(2);
-    expect(getPlayerCount(obj, 'kiwi')).toBe(1);
-    expect(getPlayerCount(obj, 'banana')).toBe(6);
-  });
-
-  test('findUncompletePlayer test1', () => {
-    const obj = { orange: 1, banana: 3 };
-    const list = ['orange', 'banana', 'kiwi', 'banana', 'banana'];
-    expect(findUncompletePlayer(obj, list)).toBe('kiwi');
-  });
-  test('findUncompletePlayer test2', () => {
-    const obj = { orange: 1, banana: 2, kiwi: 1 };
-    const list = ['orange', 'banana', 'kiwi', 'banana', 'banana'];
-    expect(findUncompletePlayer(obj, list)).toBe('banana');
-  })
 })
