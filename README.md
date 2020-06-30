@@ -28,5 +28,5 @@ After running unit test, searching test file by press `p` with regular expressio
 
 ## ✏️ Might Help
 
-This app installed package call `jest-chain` for conveniently testing. Refer (jest-chain-api)[https://www.npmjs.com/package/jest-chain]
+This app installed package call `jest-chain` for conveniently testing. Refer [jest-chain-api](https://www.npmjs.com/package/jest-chain)
 
