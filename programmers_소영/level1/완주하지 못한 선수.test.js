@@ -1,4 +1,4 @@
-import { solution, getPlayerCount, findUncompletePlayer } from './완주하지 못한 선수';
+import { solution, findUnmatchedPlayer } from './완주하지 못한 선수';
 
 describe('완주하지 못한 선수 test', () => {
   test('solution test case 1', () => {
@@ -19,4 +19,11 @@ describe('완주하지 못한 선수 test', () => {
     const result = 'mislav';
     expect(solution(participant, completion)).toBe(result);
   });
-})
+
+  test('solution test findUnmatchedPlayer success', () => {
+    const participant = ['stanko', 'ana', 'mislav', 'mislav'];
+    const completion = ['stanko', 'ana', 'mislav'];
+    const result = 'mislav';
+    expect(solution(participant, completion)).toBe(result);
+  });
+});

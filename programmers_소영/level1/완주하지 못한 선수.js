@@ -5,10 +5,9 @@ export function solution(participant, completion) {
 }
 
 function findUnmatchedPlayer(participant, completion) {
-  for (let i = 0; i < participant; i++) {
+  for (let i = 0; i < participant.length; i++) {
     if (participant[i] !== completion[i]) {
       return participant[i];
     }
-    return null;
   }
 }
