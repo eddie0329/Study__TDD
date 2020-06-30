@@ -14,7 +14,7 @@ Currently, there are listed following:
 - Testing Vue.js Applications Summary - Work in Progress
 - TDD 리팩토링[우아한테크세미나] - Finsihed
 
-Furthermore, in codes, there  are algorithm practices.
+Furthermore, in codes, there  are algorithm practices and vue testing practices.
 
 ## 🔧 Before Start
 
