@@ -7,9 +7,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import { FETCH_ITEMS } from '@/store/modules/counter';
-
 export default {
   name: 'MyCounter',
   created() {
@@ -28,7 +25,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions('counter', { fetchItems: FETCH_ITEMS }),
     onClickIncrease() {
       this.count += 1;
     },
