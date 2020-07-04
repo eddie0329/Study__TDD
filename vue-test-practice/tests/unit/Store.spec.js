@@ -1,5 +1,6 @@
 import counterStore from '@/store/modules/counter';
 import { fetchData } from '@/api/todo-service';
+import { mockItems } from '../__mock__/item-mock';
 
 jest.mock('@/api/todo-service');
 
@@ -57,13 +58,10 @@ describe('Action test', () => {
 describe('Async actions test', () => {
   describe('Fetch items test', () => {
     it('get items from mock', async () => {
-      const items = {
-        data: [1, 2, 3],
-      };
-      fetchData.mockResolvedValue(items);
+      fetchData.mockResolvedValue(mockItems);
       const commit = jest.fn();
       await FETCH_ITEMS({ commit });
-      expect(commit).toHaveBeenCalledWith('SET_ITEMS', items.data);
+      expect(commit).toHaveBeenCalledWith('SET_ITEMS', mockItems.data);
     });
   });
 });
