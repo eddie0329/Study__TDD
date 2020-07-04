@@ -1,0 +1,10 @@
+<button onclick="counter++; countDisplay()">INCREASE</button>
+<span id="counter-display">0</span>
+
+<script>
+  var counterr = 0;
+  function countDisplay() {
+    var el = document.getElementById("counter-display");
+    el.innerHTML = counter;
+  }
+</script>
