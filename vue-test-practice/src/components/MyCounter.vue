@@ -7,36 +7,40 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import { FETCH_ITEMS } from '@/store/modules/counter';
+
 export default {
-  name: "MyCounter",
+  name: 'MyCounter',
   created() {
-    this.testCreated = "TEST_CREATED";
+    this.testCreated = 'TEST_CREATED';
   },
   data() {
     return {
       count: 0,
-      tempText: "HELLO",
-      testCreated: ""
+      tempText: 'HELLO',
+      testCreated: '',
     };
   },
   props: {
     testProps: {
-      type: String
-    }
+      type: String,
+    },
   },
   methods: {
+    ...mapActions('counter', { fetchItems: FETCH_ITEMS }),
     onClickIncrease() {
       this.count += 1;
     },
     onClickDecrease() {
       this.count -= 1;
-    }
+    },
   },
   computed: {
     lowercaseTempText() {
       return this.tempText.toLowerCase();
-    }
-  }
+    },
+  },
 };
 </script>
 

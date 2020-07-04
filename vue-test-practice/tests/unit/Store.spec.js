@@ -1,5 +1,7 @@
 import counterStore from '@/store/modules/counter';
-import sinon from 'sinon';
+import { fetchData } from '@/api/todo-service';
+
+jest.mock('@/api/todo-service');
 
 const { getters, mutations, actions } = counterStore;
 
@@ -40,14 +42,28 @@ describe('Mutation test', () => {
   });
 });
 
-const { CHANGE_COUNT_VALUE } = actions;
+const { CHANGE_COUNT_VALUE, FETCH_ITEMS } = actions;
 
 describe('Action test', () => {
   describe('CHANGE_COUNT_VALUE test', () => {
     it('change count value by 10', () => {
-      const commit = sinon.spy();
+      const commit = jest.fn();
       CHANGE_COUNT_VALUE({ commit }, 10);
-      expect(commit.args).toEqual([['SET_COUNT_VALUE', 10]]);
+      expect(commit).toHaveBeenCalledWith('SET_COUNT_VALUE', 10);
+    });
+  });
+});
+
+describe('Async actions test', () => {
+  describe('Fetch items test', () => {
+    it('get items from mock', async () => {
+      const items = {
+        data: [1, 2, 3],
+      };
+      fetchData.mockResolvedValue(items);
+      const commit = jest.fn();
+      await FETCH_ITEMS({ commit });
+      expect(commit).toHaveBeenCalledWith('SET_ITEMS', items.data);
     });
   });
 });
