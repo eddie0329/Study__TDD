@@ -4,4 +4,4 @@ import MyCounter from '../src/components/MyCounter';
 
 Vue.component('my-counter', MyCounter);
 
-configure(require.context('../src/components', true, /\.stories\.js$/), module);
+configure(require.context('../src/', true, /\.stories\.js$/), module);

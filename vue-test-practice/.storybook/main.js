@@ -1,5 +1,5 @@
 // .storybook/main.js
 module.exports = {
-  stories: ['../stories/**/*.stories.js'],
+  stories: ['../src/**/*.stories.[tj]s'],
   addons: ['@storybook/addon-actions', '@storybook/addon-links', '@storybook/addon-knobs', '@storybook/addon-notes'],
 };
