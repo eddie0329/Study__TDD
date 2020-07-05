@@ -10,11 +10,18 @@
     "lint": "vue-cli-service lint",
     "storybook-ready": "PORT=8098 vue-devtools",
     "storybook": "STORYBOOK_MODE=true start-storybook -s ./public/assets -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test:integration": "start-server-and-test storybook http-get://localhost:9009 jest:integration",
+    "jest:integration": "jest -c integration/jest.config.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "jest": "^26.1.0",
+    "jest-image-snapshot": "^4.0.2",
+    "jest-puppeteer": "^4.4.0",
+    "puppeteer": "^5.0.0",
+    "start-server-and-test": "^1.11.0",
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
   },
