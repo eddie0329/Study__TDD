@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe('Button', () => {
   it('visually looks correct', async () => {
     // APIs from jest-puppeteer
