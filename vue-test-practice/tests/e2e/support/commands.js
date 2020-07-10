@@ -23,3 +23,23 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+// F.orced click
+Cypress.Commands.add('fclick', { prevSubject: 'element' }, (subject, arg) => {
+  cy.wrap(subject).click({ force: true });
+  // return null
+});
+
+// F.orced type
+Cypress.Commands.add('ftype', { prevSubject: 'element' }, (subject, arg) => {
+  cy.wrap(subject).type(arg, { force: true });
+});
+
+// C.y data getter
+Cypress.Commands.add('cget', datacy => {
+  return cy.get(`[data-cy=${datacy}]`);
+});
+
+Cypress.Commands.add('ccontains', (datacy, text) => {
+  return cy.contains(`[data-cy=${datacy}]`, text);
+});

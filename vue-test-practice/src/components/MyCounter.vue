@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2>{{ count }}</h2>
-    <button @click="onClickIncrease">+</button>
-    <button @click="onClickDecrease">-</button>
+    <h2 data-cy="countDisplay">{{ count }}</h2>
+    <button @click="onClickIncrease" data-cy="plusButton">+</button>
+    <button @click="onClickDecrease" data-cy="minusButton">-</button>
   </div>
 </template>
 
@@ -12,17 +12,17 @@ export default {
   created() {
     this.testCreated = 'TEST_CREATED';
   },
+  props: {
+    testProps: {
+      type: String,
+    },
+  },
   data() {
     return {
       count: 0,
       tempText: 'HELLO',
       testCreated: '',
     };
-  },
-  props: {
-    testProps: {
-      type: String,
-    },
   },
   methods: {
     onClickIncrease() {
