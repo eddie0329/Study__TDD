@@ -12,17 +12,17 @@ export default {
   created() {
     this.testCreated = 'TEST_CREATED';
   },
+  props: {
+    testProps: {
+      type: String,
+    },
+  },
   data() {
     return {
       count: 0,
       tempText: 'HELLO',
       testCreated: '',
     };
-  },
-  props: {
-    testProps: {
-      type: String,
-    },
   },
   methods: {
     onClickIncrease() {
