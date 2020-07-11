@@ -1,7 +1,8 @@
 {
   "name": "Study__TDD",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal Study of TDD",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "jest --watch"
@@ -11,8 +12,7 @@
     "url": "git+https://github.com/eddie0329/Study__TDD.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Eddie",
   "bugs": {
     "url": "https://github.com/eddie0329/Study__TDD/issues"
   },
