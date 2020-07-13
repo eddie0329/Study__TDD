@@ -3,7 +3,7 @@ import mockData from '../__mock__/todo-mock';
 
 const { mutations } = todosStore;
 
-const { SET_TODOS, ADD_TODO_ID } = mutations;
+const { SET_TODOS, ADD_TODO_ID, DELETE_TODO_ID } = mutations;
 
 describe('Mutation test', () => {
   describe('SET_TODOS test', () => {
@@ -30,6 +30,14 @@ describe('Mutation test', () => {
       ADD_TODO_ID(state, 1);
       ADD_TODO_ID(state, 2);
       expect(state.todoIds).toEqual([2, 1]);
+    });
+  });
+
+  describe('DELETE_TODO_ID', () => {
+    it('delete todo id [2, 1, 3] index 0 -> [1, 3]', () => {
+      const state = { todoIds: [2, 1, 3] };
+      DELETE_TODO_ID(state, 0);
+      expect(state.todoIds).toEqual([1, 3]);
     });
   });
 });
