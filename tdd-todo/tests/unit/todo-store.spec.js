@@ -39,5 +39,11 @@ describe('Mutation test', () => {
       DELETE_TODO_ID(state, 0);
       expect(state.todoIds).toEqual([1, 3]);
     });
+
+    it('delete todo id [2, 1, 3] index 1 -> [2, 3]', () => {
+      const state = { todoIds: [2, 1, 3] };
+      DELETE_TODO_ID(state, 1);
+      expect(state.todoIds).toEqual([2, 3]);
+    });
   });
 });
