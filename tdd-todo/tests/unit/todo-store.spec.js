@@ -6,7 +6,7 @@ const { mutations } = todosStore;
 const { SET_TODOS } = mutations;
 
 describe('Mutation test', () => {
-  describe('SET_TODO test', () => {
+  describe('SET_TODOS test', () => {
     it('set todos -> state = todos: { title: test1, ...}', () => {
       const state = { todos: {} };
       SET_TODOS(state, mockData.singleItemTodos);
