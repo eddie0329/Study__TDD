@@ -1,10 +1,10 @@
 <template>
   <el-row class="list-todo">
-    <el-col :span="4">
+    <el-col :span="2">
       <CheckButton />
     </el-col>
-    <el-col :span="12">
-      <el-input></el-input>
+    <el-col :span="14">
+      <el-input :disabled="true"></el-input>
     </el-col>
     <el-col :span="4">
       <DeleteButton />
