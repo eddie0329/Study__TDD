@@ -3,7 +3,7 @@
     <el-col :span="16">
       <el-input clearable></el-input>
     </el-col>
-    <el-col :span="8">
+    <el-col :span="4">
       <primary-button>ADD</primary-button>
     </el-col>
   </el-row>
