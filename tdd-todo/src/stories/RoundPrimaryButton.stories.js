@@ -1,17 +1,27 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/vue';
 import { withKnobs } from '@storybook/addon-knobs';
-import RoundPrimaryButton from '../components/RoundPrimaryButton.vue';
+import PrimaryButton from '../components/PrimaryButton.vue';
 
-storiesOf('RoundPrimaryButton', module)
+storiesOf('PrimaryButton', module)
   .addDecorator(withKnobs)
   .add('Default', () => ({
     components: {
-      RoundPrimaryButton,
+      PrimaryButton,
     },
     template: `
       <div>
-        <round-primary-button>Default</round-primary-button>
+        <primary-button>Default</primary-button>
       </div>
-    `
+    `,
+  }))
+  .add('Add Button', () => ({
+    components: {
+      PrimaryButton,
+    },
+    template: `
+      <div>
+        <primary-button>Add</primary-button>
+      </div>
+    `,
   }));

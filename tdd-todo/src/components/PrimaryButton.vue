@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'RoundPrimaryButton',
+  name: 'PrimaryButton',
 };
 </script>
