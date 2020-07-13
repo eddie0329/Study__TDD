@@ -8,6 +8,7 @@ const _getters = {};
 
 const SET_TODOS = 'SET_TODOS';
 const ADD_TODO_ID = 'ADD_TODO_ID';
+const DELETE_TODO_ID = 'DELETE_TODO_ID';
 
 const _mutations = {
   [SET_TODOS](state, todos) {
@@ -16,6 +17,10 @@ const _mutations = {
 
   [ADD_TODO_ID](state, id) {
     state.todoIds.unshift(id);
+  },
+
+  [DELETE_TODO_ID](state, index) {
+    state.todoIds.splice(index, 1);
   },
 };
 
