@@ -11,9 +11,18 @@ export const solution = (number, target, sum = 0, index = -1, answer = 0) => {
     console.log("index", index);
     console.log("sum", sum);
     console.log("answer", answer);
+    console.log();
     const indexNext = index + 1;
-    solution(number, target, (sum -= number[indexNext]), indexNext);
-    solution(number, target, (sum += number[indexNext]), indexNext);
+    const sumMinus = sum - number[indexNext];
+    const sumPlus = sum + number[indexNext];
+    solution(number, target, sumMinus, indexNext);
+    solution(number, target, sumPlus, indexNext);
   }
+  console.log("index", index);
+  console.log("sum", sum);
+  console.log("answer", answer);
+  console.log();
   return answer;
 };
+
+solution([1, 1, 1], 3);
