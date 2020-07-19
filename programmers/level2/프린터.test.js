@@ -5,6 +5,6 @@ describe("printer test", () => {
     expect(solution([2, 1, 3, 2], 2)).toBe(1);
   });
   it("solution test2", () => {
-    expect(solution([1, 1, 9, 1, 1], 0)).toBe(5);
+    expect(solution([1, 1, 9, 1, 1, 1], 0)).toBe(5);
   });
 });
