@@ -7,7 +7,7 @@
       <el-input :disabled="true" :value="todoTitle"></el-input>
     </el-col>
     <el-col :span="4">
-      <DeleteButton />
+      <DeleteButton @click="$emit('remove')"/>
     </el-col>
   </el-row>
 </template>
