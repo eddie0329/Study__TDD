@@ -76,13 +76,13 @@ describe('Mutation test', () => {
   });
 
   describe('DELETE_TODO_ID', () => {
-    it('delete todo id [2, 1, 3] index 0 -> [1, 3]', () => {
+    it('delete todo id [2, 1, 3] 2 -> [1, 3]', () => {
       const state = { todoIds: [2, 1, 3] };
-      DELETE_TODO_ID(state, 0);
+      DELETE_TODO_ID(state, 2);
       expect(state.todoIds).toEqual([1, 3]);
     });
 
-    it('delete todo id [2, 1, 3] index 1 -> [2, 3]', () => {
+    it('delete todo id [2, 1, 3] 1 -> [2, 3]', () => {
       const state = { todoIds: [2, 1, 3] };
       DELETE_TODO_ID(state, 1);
       expect(state.todoIds).toEqual([2, 3]);
