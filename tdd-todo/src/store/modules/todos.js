@@ -7,10 +7,11 @@ const _state = {
 const _getters = {};
 
 // MUTATION TYPES
-const SET_TODOS = 'SET_TODOS';
-const DELETE_TODO = 'DELETE_TODO';
-const ADD_TODO_ID = 'ADD_TODO_ID';
-const DELETE_TODO_ID = 'DELETE_TODO_ID';
+export const SET_TODOS = 'SET_TODOS';
+export const DELETE_TODO = 'DELETE_TODO';
+export const ADD_TODO_ID = 'ADD_TODO_ID';
+export const DELETE_TODO_ID = 'DELETE_TODO_ID';
+export const SET_TODO_DONE = 'SET_TODO_DONE';
 
 const _mutations = {
   /**
@@ -47,6 +48,10 @@ const _mutations = {
    */
   [DELETE_TODO_ID](state, index) {
     state.todoIds.splice(index, 1);
+  },
+
+  [SET_TODO_DONE](state, { id, status }) {
+    state.todos[id].isTodoDone = status;
   },
 };
 

@@ -62,12 +62,12 @@ describe('Mutation test', () => {
   });
 
   describe('SET_TODO_DONE', () => {
-    const state = { ...mockData.singleItemTodos };
+    const state = { todos: mockData.singleItemTodos };
     it('set todo done true', () => {
-      SET_TODO_DONE(state, { id: 1, status: true });
+      SET_TODO_DONE(state, { id: '1', status: true });
     });
     it('set todo done false', () => {
-      SET_TODO_DONE(state, { id: 1, status: false });
+      SET_TODO_DONE(state, { id: '1', status: false });
     });
   });
 });
