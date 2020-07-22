@@ -50,6 +50,11 @@ const _mutations = {
     state.todoIds.splice(index, 1);
   },
 
+  /**
+   *
+   * @param {object} state
+   * @param {object} param1
+   */
   [SET_TODO_DONE](state, { id, status }) {
     state.todos[id].isTodoDone = status;
   },
