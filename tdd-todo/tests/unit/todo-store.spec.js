@@ -1,5 +1,14 @@
-import todosStore from '../../src/store/modules/todos';
+import todosStore, { createTodoTemplate } from '../../src/store/modules/todos';
 import mockData from '../__mock__/todo-mock';
+
+describe('Util test', () => {
+  describe('createTodoTemplate test', () => {
+    it('title: hello test => { id: ..., title: hello test, isTodoDone: false }', () => {
+      expect(createTodoTemplate('hello test').title).toEqual('hello test');
+      expect(createTodoTemplate('hello test').isTodoDone).toBeFalsy();
+    });
+  });
+});
 
 const { mutations } = todosStore;
 
@@ -83,15 +92,16 @@ describe('Mutation test', () => {
   });
 });
 
-const { actions } = todosStore;
-const { CREATE_TODO } = actions;
+// const { actions } = todosStore;
+// const { CREATE_TODO } = actions;
 
-describe('ACTION TEST', () => {
-  describe('CREATE_TODO test', () => {
-    it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
-      const commit = jest.fn();
-      CREATE_TODO({ commit }, mockData.singleMockTodo);
-      expect(commit).toHaveBeenCalledWith('SET_TODOS', mockData.singleMockTodo);
-    });
-  });
-});
+// describe('Action test', () => {
+//   describe('CREATE_TODO test', () => {
+//     it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
+//       const commit = jest.fn();
+//       CREATE_TODO({ commit });
+//       expect(commit).toHaveBeenCalled('SET_TODOS');
+//       expect(commit).toHaveBeenCalledWith('SET_TODOS');
+//     });
+//   });
+// });
