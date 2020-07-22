@@ -1,9 +1,28 @@
+import { nanoid } from 'nanoid';
 import todosStore, { createTodoTemplate } from '../../src/store/modules/todos';
 import mockData from '../__mock__/todo-mock';
+
+jest.mock('nanoid');
+
+nanoid.mockImplementation(() => {
+  let value = 0;
+  return String(value += 1);
+});
+
+afterAll(() => {
+  nanoid.mockRestore();
+});
+
+
 
 describe('Util test', () => {
   describe('createTodoTemplate test', () => {
     it('title: hello test => { id: ..., title: hello test, isTodoDone: false }', () => {
+      expect(createTodoTemplate('hello test')).toEqual({
+        id: 1,
+        title: 'hello test',
+        isTodoDone: false
+      });
       expect(createTodoTemplate('hello test').title).toEqual('hello test');
       expect(createTodoTemplate('hello test').isTodoDone).toBeFalsy();
     });
@@ -92,16 +111,18 @@ describe('Mutation test', () => {
   });
 });
 
-// const { actions } = todosStore;
-// const { CREATE_TODO } = actions;
+const { actions } = todosStore;
+const { CREATE_TODO } = actions;
 
-// describe('Action test', () => {
-//   describe('CREATE_TODO test', () => {
-//     it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
-//       const commit = jest.fn();
-//       CREATE_TODO({ commit });
-//       expect(commit).toHaveBeenCalled('SET_TODOS');
-//       expect(commit).toHaveBeenCalledWith('SET_TODOS');
-//     });
-//   });
-// });
+describe('Action test', () => {
+  describe('CREATE_TODO test', () => {
+    it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
+      const commit = jest.fn();
+      const state = { todos: {}, todoInput: "helloWolrd" };
+      CREATE_TODO({ state, commit });
+      expect(Object.values(state.todos))
+      expect(commit).toHaveBeenCalled('SET_TODOS');
+      expect(commit).toHaveBeenCalledWith('SET_TODOS');
+    });
+  });
+});
