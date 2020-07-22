@@ -124,6 +124,7 @@ describe('Action test', () => {
         mockData.singleItemTodos,
       );
       expect(commit).toHaveBeenCalledWith('ADD_TODO_ID', '1');
+      expect(commit).toHaveBeenCalledWith('SET_TODO_INPUT', '');
     });
     it('create todo with blank todoInput', () => {
       const commit = jest.fn();
