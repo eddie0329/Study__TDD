@@ -6,7 +6,7 @@ jest.mock('nanoid');
 
 nanoid.mockImplementation(() => {
   let value = 0;
-  const result = String(value += 1);
+  const result = String((value += 1));
   return result;
 });
 
@@ -111,7 +111,7 @@ describe('Mutation test', () => {
 });
 
 const { actions } = todosStore;
-const { CREATE_TODO } = actions;
+const { CREATE_TODO, REMOVE_TODO } = actions;
 
 describe('Action test', () => {
   describe('CREATE_TODO test', () => {
@@ -131,6 +131,17 @@ describe('Action test', () => {
       const state = { todos: {}, todoInput: '' };
       CREATE_TODO({ state, commit });
       expect(commit).toHaveBeenCalledTimes(0);
+    });
+  });
+
+  describe('REMOVE_TODO test', () => {
+    it('remove todo -> 1', () => {
+      const commit = jest.fn();
+      const id = '1';
+      REMOVE_TODO({ commit }, id);
+      expect(commit).toHaveBeenCalledTimes(2);
+      expect(commit).toHaveBeenLastCalledWith('DELETE_TODO', id);
+      expect(commit).toHaveBeenLastCalledWith('DELETE_TODO_ID', id);
     });
   });
 });
