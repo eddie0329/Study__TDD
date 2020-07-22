@@ -22,8 +22,8 @@ const itemTodos1 = {
     id: '2',
     title: 'test2',
     isTodoDone: false,
-  }
-}
+  },
+};
 
 export default {
   singleMockTodo,

@@ -1,7 +1,5 @@
 {
   "singleQuote": true,
   "trailingComma": "all",
-  "arrowParens": "always",
-  "rangeStart": 0,
-  "rangeEnd": 100
+  "arrowParens": "always"
 }
