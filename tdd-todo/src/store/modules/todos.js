@@ -54,6 +54,7 @@ const _mutations = {
 
 // ACTION TYPES
 export const CREATE_TODO = 'CREATE_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
 const _actions = {
   [CREATE_TODO]({ state, commit }) {
@@ -68,6 +69,11 @@ const _actions = {
     commit(SET_TODOS, clonedTodos);
     commit(ADD_TODO_ID, todoId);
     commit(SET_TODO_INPUT, '');
+  },
+
+  [REMOVE_TODO]({ commit }, id) {
+    commit(DELETE_TODO, id);
+    commit(DELETE_TODO_ID, id);
   },
 };
 

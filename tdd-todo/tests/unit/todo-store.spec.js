@@ -140,8 +140,8 @@ describe('Action test', () => {
       const id = '1';
       REMOVE_TODO({ commit }, id);
       expect(commit).toHaveBeenCalledTimes(2);
-      expect(commit).toHaveBeenLastCalledWith('DELETE_TODO', id);
-      expect(commit).toHaveBeenLastCalledWith('DELETE_TODO_ID', id);
+      expect(commit).toHaveBeenCalledWith('DELETE_TODO', id);
+      expect(commit).toHaveBeenCalledWith('DELETE_TODO_ID', id);
     });
   });
 });
