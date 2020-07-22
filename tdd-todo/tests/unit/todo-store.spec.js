@@ -114,9 +114,13 @@ const { actions } = todosStore;
 const { CREATE_TODO, REMOVE_TODO } = actions;
 
 describe('Action test', () => {
+  let commit;
+  beforeEach(() => {
+    commit = jest.fn();
+  });
+
   describe('CREATE_TODO test', () => {
     it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
-      const commit = jest.fn();
       const state = { todos: {}, todoInput: 'test1' };
       CREATE_TODO({ state, commit });
       expect(commit).toHaveBeenCalledWith(
@@ -127,7 +131,6 @@ describe('Action test', () => {
       expect(commit).toHaveBeenCalledWith('SET_TODO_INPUT', '');
     });
     it('create todo with blank todoInput', () => {
-      const commit = jest.fn();
       const state = { todos: {}, todoInput: '' };
       CREATE_TODO({ state, commit });
       expect(commit).toHaveBeenCalledTimes(0);
@@ -136,7 +139,6 @@ describe('Action test', () => {
 
   describe('REMOVE_TODO test', () => {
     it('remove todo -> 1', () => {
-      const commit = jest.fn();
       const id = '1';
       REMOVE_TODO({ commit }, id);
       expect(commit).toHaveBeenCalledTimes(2);
@@ -144,4 +146,14 @@ describe('Action test', () => {
       expect(commit).toHaveBeenCalledWith('DELETE_TODO_ID', id);
     });
   });
+
+  // describe('CHANGE_TODO_STATUS test', () => {
+  //   it('changeTodoStatus -> { isTodoDone: false -> true } ', () => {
+  //     const state = { todoIds: ['1'], todos: { 1: { isTodoDone: false } } };
+      
+  //   });
+  //   it('changeTodoStatus -> { isTodoDone: true -> false } ', () => {
+  //     const state = { todoIds: ['1'], todos: { 1: { isTodoDone: true } } };
+  //   });
+  // });
 });
