@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { nanoid } from 'nanoid';
+import _cloneDeep from 'lodash/cloneDeep';
 
 export const createTodoTemplate = (title) => {
   const template = {};
@@ -7,8 +8,7 @@ export const createTodoTemplate = (title) => {
   template.title = title;
   template.isTodoDone = false;
   return template;
-}
-
+};
 
 const _state = {
   todos: {},
@@ -87,8 +87,16 @@ const _mutations = {
 export const CREATE_TODO = 'CREATE_TODO';
 
 const _actions = {
-  [CREATE_TODO]({ commit }) {
+  [CREATE_TODO]({ state, commit }) {
+    const { todos, todoInput } = state;
+    const clonedTodos = _cloneDeep(todos);
+    const todo = createTodoTemplate(todoInput);
+    const todoId = todo.id;
+    clonedTodos[todoId] = todo;
+    commit(SET_TODOS, clonedTodos);
+    commit(ADD_TODO_ID, todoId);
   },
+
 };
 
 export default {
