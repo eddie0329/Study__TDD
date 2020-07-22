@@ -39,8 +39,9 @@ const _mutations = {
     state.todoIds.unshift(id);
   },
 
-  [DELETE_TODO_ID](state, index) {
-    state.todoIds.splice(index, 1);
+  [DELETE_TODO_ID](state, id) {
+    const idIndex = state.todoIds.findIndex((todoId) => todoId === id);
+    state.todoIds.splice(idIndex, 1);
   },
 
   [SET_TODO_DONE](state, { id, status }) {
