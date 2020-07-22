@@ -60,6 +60,8 @@ const _mutations = {
   },
 };
 
+// ACTION TYPES
+
 const _actions = {};
 
 export default {

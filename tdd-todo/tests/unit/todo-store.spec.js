@@ -9,6 +9,7 @@ const {
   DELETE_TODO_ID,
   DELETE_TODO,
   SET_TODO_DONE,
+  SET_TODO_INPUT,
 } = mutations;
 
 describe('Mutation test', () => {
@@ -70,4 +71,16 @@ describe('Mutation test', () => {
       SET_TODO_DONE(state, { id: '1', status: false });
     });
   });
+
+  describe('SET_TODO_INPUT', () => {
+    const state = { todoInput: '' };
+    it('set todo input -> a', () => {
+      SET_TODO_INPUT(state, 'a');
+    });
+    it('set todo input -> abc', () => {
+      SET_TODO_INPUT(state, 'abc');
+    });
+  });
 });
+
+describe('ACTION TEST', () => {});
