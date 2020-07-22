@@ -1,4 +1,15 @@
 /* eslint-disable no-underscore-dangle */
+import { nanoid } from 'nanoid';
+
+export const createTodoTemplate = (title) => {
+  const template = {};
+  template.id = nanoid();
+  template.title = title;
+  template.isTodoDone = false;
+  return template;
+}
+
+
 const _state = {
   todos: {},
   todoIds: [],
@@ -76,7 +87,8 @@ const _mutations = {
 export const CREATE_TODO = 'CREATE_TODO';
 
 const _actions = {
-  [CREATE_TODO]({ commit }) {}
+  [CREATE_TODO]({ commit }) {
+  },
 };
 
 export default {
