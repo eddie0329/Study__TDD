@@ -4,7 +4,7 @@
       <CheckButton />
     </el-col>
     <el-col :span="14">
-      <el-input :disabled="true"></el-input>
+      <el-input :disabled="true" :value="todoTitle"></el-input>
     </el-col>
     <el-col :span="4">
       <DeleteButton />
@@ -18,6 +18,12 @@ import DeleteButton from './DeleteButton.vue';
 
 export default {
   name: 'ListTodo',
+  props: {
+    todoTitle: {
+      default: '',
+      type: String,
+    },
+  },
   components: {
     CheckButton,
     DeleteButton,
