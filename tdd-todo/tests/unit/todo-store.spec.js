@@ -151,16 +151,18 @@ describe('Action test', () => {
     it('changeTodoStatus -> { isTodoDone: false -> true } ', () => {
       const state = { todoIds: ['1'], todos: { 1: { isTodoDone: false } } };
       const id = 1;
+      const status = true;
       CHANGE_TODO_STATUS({ commit, state }, id);
       expect(commit).toHaveBeenCalledTimes(1);
-      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', id);
+      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', { id, status });
     });
     it('changeTodoStatus -> { isTodoDone: true -> false } ', () => {
       const state = { todoIds: ['1'], todos: { 1: { isTodoDone: true } } };
       const id = 1;
+      const status = false;
       CHANGE_TODO_STATUS({ commit, state }, id);
       expect(commit).toHaveBeenCalledTimes(1);
-      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', id);
+      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', { id, status });
     });
   });
 });
