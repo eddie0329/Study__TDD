@@ -125,5 +125,11 @@ describe('Action test', () => {
       );
       expect(commit).toHaveBeenCalledWith('ADD_TODO_ID', '1');
     });
+    it('create todo with blank todoInput', () => {
+      const commit = jest.fn();
+      const state = { todos: {}, todoInput: '' };
+      CREATE_TODO({ state, commit });
+      expect(commit).toHaveBeenCalledTimes(0);
+    });
   });
 });
