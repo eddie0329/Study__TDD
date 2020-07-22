@@ -1,0 +1,9 @@
+{
+  "extends": ["airbnb-base"],
+  "rules": {
+    "no-undef": "off",
+    "no-restricted-imports": "off",
+    "no-param-reassign": "off",
+    "max-len": "off"
+  }
+}

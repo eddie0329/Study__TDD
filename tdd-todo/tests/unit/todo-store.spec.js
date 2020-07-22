@@ -1,4 +1,4 @@
-import todosStore from '@/store/modules/todos';
+import todosStore from '../../src/store/modules/todos';
 import mockData from '../__mock__/todo-mock';
 
 const { mutations } = todosStore;

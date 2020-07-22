@@ -1,8 +1,7 @@
-/* eslint-disable max-len */
 <template>
   <div>
-    <el-button v-if="isTodoDone" type="success" icon="el-icon-check" circle @click="$emit('click')"></el-button>
-    <el-button v-else circle icon="el-icon-minus" @click="$emit('click')"></el-button>
+    <el-button v-if="isTodoDone" type="success" icon="el-icon-check" circle @click="emitClick"></el-button>
+    <el-button v-else circle icon="el-icon-minus" @click="emitClick"></el-button>
   </div>
 </template>
 
@@ -13,6 +12,11 @@ export default {
     isTodoDone: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    emitClick() {
+      this.$emit('click');
     },
   },
 };
