@@ -111,7 +111,7 @@ describe('Mutation test', () => {
 });
 
 const { actions } = todosStore;
-const { CREATE_TODO, REMOVE_TODO } = actions;
+const { CREATE_TODO, REMOVE_TODO, CHANGE_TODO_STATUS } = actions;
 
 describe('Action test', () => {
   let commit;
@@ -147,13 +147,20 @@ describe('Action test', () => {
     });
   });
 
-  // describe('CHANGE_TODO_STATUS test', () => {
-  //   it('changeTodoStatus -> { isTodoDone: false -> true } ', () => {
-  //     const state = { todoIds: ['1'], todos: { 1: { isTodoDone: false } } };
-      
-  //   });
-  //   it('changeTodoStatus -> { isTodoDone: true -> false } ', () => {
-  //     const state = { todoIds: ['1'], todos: { 1: { isTodoDone: true } } };
-  //   });
-  // });
+  describe('CHANGE_TODO_STATUS test', () => {
+    it('changeTodoStatus -> { isTodoDone: false -> true } ', () => {
+      const state = { todoIds: ['1'], todos: { 1: { isTodoDone: false } } };
+      const id = 1;
+      CHANGE_TODO_STATUS({ commit, state }, id);
+      expect(commit).toHaveBeenCalledTimes(1);
+      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', id);
+    });
+    it('changeTodoStatus -> { isTodoDone: true -> false } ', () => {
+      const state = { todoIds: ['1'], todos: { 1: { isTodoDone: true } } };
+      const id = 1;
+      CHANGE_TODO_STATUS({ commit, state }, id);
+      expect(commit).toHaveBeenCalledTimes(1);
+      expect(commit).toHaveBeenCalledWith('SET_TODO_DONE', id);
+    });
+  });
 });
