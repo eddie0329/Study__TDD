@@ -3,7 +3,13 @@ import mockData from '../__mock__/todo-mock';
 
 const { mutations } = todosStore;
 
-const { SET_TODOS, ADD_TODO_ID, DELETE_TODO_ID, DELETE_TODO } = mutations;
+const {
+  SET_TODOS,
+  ADD_TODO_ID,
+  DELETE_TODO_ID,
+  DELETE_TODO,
+  SET_TODO_DONE,
+} = mutations;
 
 describe('Mutation test', () => {
   describe('SET_TODOS test', () => {
@@ -52,6 +58,16 @@ describe('Mutation test', () => {
       const state = { todoIds: [2, 1, 3] };
       DELETE_TODO_ID(state, 1);
       expect(state.todoIds).toEqual([2, 3]);
+    });
+  });
+
+  describe('SET_TODO_DONE', () => {
+    const state = { ...mockData.singleItemTodos };
+    it('set todo done true', () => {
+      SET_TODO_DONE(state, { id: 1, status: true });
+    });
+    it('set todo done false', () => {
+      SET_TODO_DONE(state, { id: 1, status: false });
     });
   });
 });
