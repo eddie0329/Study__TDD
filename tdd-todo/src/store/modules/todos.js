@@ -73,7 +73,11 @@ const _mutations = {
 
 // ACTION TYPES
 
-const _actions = {};
+export const CREATE_TODO = 'CREATE_TODO';
+
+const _actions = {
+  [CREATE_TODO]({ commit }) {}
+};
 
 export default {
   namespaced: true,

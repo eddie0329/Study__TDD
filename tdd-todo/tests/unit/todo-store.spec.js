@@ -83,4 +83,15 @@ describe('Mutation test', () => {
   });
 });
 
-describe('ACTION TEST', () => {});
+const { actions } = todosStore;
+const { CREATE_TODO } = actions;
+
+describe('ACTION TEST', () => {
+  describe('CREATE_TODO test', () => {
+    it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
+      const commit = jest.fn();
+      CREATE_TODO({ commit }, mockData.singleMockTodo);
+      expect(commit).toHaveBeenCalledWith('SET_TODOS', mockData.singleMockTodo);
+    });
+  });
+});
