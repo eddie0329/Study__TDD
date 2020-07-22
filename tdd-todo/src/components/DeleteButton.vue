@@ -1,5 +1,5 @@
 <template>
-  <el-button type="danger" icon="el-icon-delete" circle></el-button>
+  <el-button type="danger" icon="el-icon-delete" circle @click="$emit('click')"></el-button>
 </template>
 
 <script>

@@ -1,56 +1,89 @@
 /* eslint-disable no-underscore-dangle */
+import { nanoid } from 'nanoid';
+import _cloneDeep from 'lodash/cloneDeep';
+
+export const createTodoTemplate = (title) => {
+  const template = {};
+  template.id = nanoid();
+  template.title = title;
+  template.isTodoDone = false;
+  return template;
+};
+
 const _state = {
   todos: {},
   todoIds: [],
+  todoInput: '',
 };
 
 const _getters = {};
 
 // MUTATION TYPES
-const SET_TODOS = 'SET_TODOS';
-const DELETE_TODO = 'DELETE_TODO';
-const ADD_TODO_ID = 'ADD_TODO_ID';
-const DELETE_TODO_ID = 'DELETE_TODO_ID';
+export const SET_TODOS = 'SET_TODOS';
+export const DELETE_TODO = 'DELETE_TODO';
+export const ADD_TODO_ID = 'ADD_TODO_ID';
+export const DELETE_TODO_ID = 'DELETE_TODO_ID';
+export const SET_TODO_DONE = 'SET_TODO_DONE';
+export const SET_TODO_INPUT = 'SET_TODO_INPUT';
 
 const _mutations = {
-  /**
-   *
-   * @param {object} state
-   * @param {object} todos
-   */
   [SET_TODOS](state, todos) {
     state.todos = todos;
   },
 
-  /**
-   *
-   * @param {object} state
-   * @param {string} id
-   */
   [DELETE_TODO](state, id) {
     delete state.todos[id];
   },
 
-  /**
-   *
-   * @param {object} state
-   * @param {string} id
-   */
   [ADD_TODO_ID](state, id) {
     state.todoIds.unshift(id);
   },
 
-  /**
-   *
-   * @param {object} state
-   * @param {number} index
-   */
-  [DELETE_TODO_ID](state, index) {
-    state.todoIds.splice(index, 1);
+  [DELETE_TODO_ID](state, id) {
+    const idIndex = state.todoIds.findIndex((todoId) => todoId === id);
+    state.todoIds.splice(idIndex, 1);
+  },
+
+  [SET_TODO_DONE](state, { id, status }) {
+    state.todos[id].isTodoDone = status;
+  },
+
+  [SET_TODO_INPUT](state, todoInput) {
+    state.todoInput = todoInput;
   },
 };
 
-const _actions = {};
+// ACTION TYPES
+export const CREATE_TODO = 'CREATE_TODO';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const CHANGE_TODO_STATUS = 'CHANGE_TODO_STATUS';
+
+const _actions = {
+  [CREATE_TODO]({ state, commit }) {
+    const { todos, todoInput } = state;
+    if (todoInput === '') {
+      return;
+    }
+    const clonedTodos = _cloneDeep(todos);
+    const todo = createTodoTemplate(todoInput);
+    const todoId = todo.id;
+    clonedTodos[todoId] = todo;
+    commit(SET_TODOS, clonedTodos);
+    commit(ADD_TODO_ID, todoId);
+    commit(SET_TODO_INPUT, '');
+  },
+
+  [REMOVE_TODO]({ commit }, id) {
+    commit(DELETE_TODO, id);
+    commit(DELETE_TODO_ID, id);
+  },
+
+  [CHANGE_TODO_STATUS]({ state, commit }, id) {
+    const { todos } = state;
+    const status = !todos[id].isTodoDone;
+    commit(SET_TODO_DONE, { id, status });
+  },
+};
 
 export default {
   namespaced: true,
