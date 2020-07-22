@@ -19,7 +19,7 @@ describe('Util test', () => {
   describe('createTodoTemplate test', () => {
     it('title: hello test => { id: ..., title: hello test, isTodoDone: false }', () => {
       expect(createTodoTemplate('hello test')).toEqual({
-        id: 1,
+        id: "1",
         title: 'hello test',
         isTodoDone: false
       });
@@ -118,11 +118,10 @@ describe('Action test', () => {
   describe('CREATE_TODO test', () => {
     it('create todo -> state.todo = { id: ..., title: test, isTodoDone: false', () => {
       const commit = jest.fn();
-      const state = { todos: {}, todoInput: "helloWolrd" };
+      const state = { todos: {}, todoInput: "test1" };
       CREATE_TODO({ state, commit });
-      expect(Object.values(state.todos))
-      expect(commit).toHaveBeenCalled('SET_TODOS');
-      expect(commit).toHaveBeenCalledWith('SET_TODOS');
+      expect(commit).toHaveBeenCalledWith('SET_TODOS', mockData.singleItemTodos);
+      expect(commit).toHaveBeenCalledWith('ADD_TODO_ID', "1");
     });
   });
 });
