@@ -89,6 +89,9 @@ export const CREATE_TODO = 'CREATE_TODO';
 const _actions = {
   [CREATE_TODO]({ state, commit }) {
     const { todos, todoInput } = state;
+    if (todoInput === '') {
+      return;
+    }
     const clonedTodos = _cloneDeep(todos);
     const todo = createTodoTemplate(todoInput);
     const todoId = todo.id;
@@ -96,7 +99,6 @@ const _actions = {
     commit(SET_TODOS, clonedTodos);
     commit(ADD_TODO_ID, todoId);
   },
-
 };
 
 export default {
