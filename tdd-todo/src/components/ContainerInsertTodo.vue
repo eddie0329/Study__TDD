@@ -1,12 +1,14 @@
 <template>
-  <el-row>
-    <el-col :span="16">
-      <el-input v-model="inputTodo" clearable></el-input>
-    </el-col>
-    <el-col :span="4">
-      <primary-button @click="createTodo">ADD</primary-button>
-    </el-col>
-  </el-row>
+  <form @submit.prevent="createTodo">
+    <el-row>
+      <el-col :span="16">
+        <el-input v-model="inputTodo" clearable></el-input>
+      </el-col>
+      <el-col :span="4">
+        <primary-button>ADD</primary-button>
+      </el-col>
+    </el-row>
+  </form>
 </template>
 
 <script>
