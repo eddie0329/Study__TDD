@@ -2,6 +2,7 @@
 const _state = {
   todos: {},
   todoIds: [],
+  todoInput: '',
 };
 
 const _getters = {};
@@ -12,6 +13,7 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const ADD_TODO_ID = 'ADD_TODO_ID';
 export const DELETE_TODO_ID = 'DELETE_TODO_ID';
 export const SET_TODO_DONE = 'SET_TODO_DONE';
+export const SET_TODO_INPUT = 'SET_TODO_INPUT';
 
 const _mutations = {
   /**
@@ -57,6 +59,15 @@ const _mutations = {
    */
   [SET_TODO_DONE](state, { id, status }) {
     state.todos[id].isTodoDone = status;
+  },
+
+  /**
+   *
+   * @param {object} state
+   * @param {string} todoInput
+   */
+  [SET_TODO_INPUT](state, todoInput) {
+    state.todoInput = todoInput;
   },
 };
 
