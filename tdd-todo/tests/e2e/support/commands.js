@@ -23,3 +23,8 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('cget', (datacy) => cy.get(`[data-cy=${datacy}]`));
+Cypress.Commands.add('fclick', { prevSubject: 'element' }, (subject) => {
+  cy.wrap(subject).click({ force: true });
+});

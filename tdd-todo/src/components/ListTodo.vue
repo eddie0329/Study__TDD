@@ -1,7 +1,7 @@
 <template>
-  <el-row class="list-todo">
+  <el-row class="list-todo" data-cy="listTodo">
     <el-col :span="2">
-      <CheckButton :is-todo-done="todo.isTodoDone" @click="$emit('update')" />
+      <CheckButton :is-todo-done="todo.isTodoDone" @click="$emit('update')" data-cy="checkBtn"/>
     </el-col>
     <el-col :span="14">
       <el-input :disabled="true" :value="todo.title"></el-input>

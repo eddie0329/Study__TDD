@@ -1,8 +1,12 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe('My First Test', () => {
-  it('Visits the app root url', () => {
+describe('Todo Cypress test', () => {
+  it('Add 5 Todos test', () => {
     cy.visit('/');
-    cy.contains('h1', 'Welcome to Your Vue.js App');
+    for (let i = 1; i < 6; i += 1) {
+      cy.cget('todoInsertInput').type(`test${i}`);
+      cy.cget('todoAddBtn').fclick();
+    }
+    cy.cget('listTodo').should('have.length', 5);
   });
 });
