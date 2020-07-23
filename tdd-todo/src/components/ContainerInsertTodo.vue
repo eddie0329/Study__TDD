@@ -2,10 +2,10 @@
   <form @submit.prevent="createTodo">
     <el-row>
       <el-col :span="16">
-        <el-input v-model="inputTodo" clearable></el-input>
+        <el-input data-cy="todoInsertInput" v-model="inputTodo" clearable></el-input>
       </el-col>
       <el-col :span="4">
-        <primary-button>ADD</primary-button>
+        <primary-button type="submit" data-cy="todoAddBtn">ADD</primary-button>
       </el-col>
     </el-row>
   </form>
