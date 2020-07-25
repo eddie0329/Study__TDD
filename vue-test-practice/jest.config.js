@@ -1,5 +1,4 @@
 module.exports = {
-  preset: ['@vue/cli-plugin-unit-jest', 'jest-puppeteer'],
-  testRegex: './*\\.test\\.js$',
+  preset: '@vue/cli-plugin-unit-jest',
   setupFilesAfterEnv: ['./setupTests.js'],
 };
