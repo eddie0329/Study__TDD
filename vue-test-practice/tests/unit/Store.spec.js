@@ -1,10 +1,16 @@
-import counterStore from '@/store/modules/counter';
+import counterStore, { getDefaultState } from '@/store/modules/counter';
 import { fetchData } from '@/api/todo-service';
 import { mockItems } from '../__mock__/item-mock';
 
 jest.mock('@/api/todo-service');
 
-const { getters, mutations, actions } = counterStore;
+const { state, getters, mutations, actions } = counterStore;
+
+describe('State test', () => {
+  it('state should be equal getDeFaultState()', () => {
+    expect(state).toEqual(getDefaultState());
+  });
+});
 
 const { isCountZero } = getters;
 
@@ -24,9 +30,9 @@ describe('Getters test', () => {
 const { INCREMENT, DECREMENT } = mutations;
 
 describe('Mutation test', () => {
-  const state = { count: 0 };
+  let state;
   beforeEach(() => {
-    state.count = 0;
+    state = getDefaultState();
   });
   describe('Increment test', () => {
     it('Increment state by 1', () => {

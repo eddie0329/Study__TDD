@@ -1,9 +1,9 @@
 import { fetchData } from '@/api/todo-service';
 
-const state = {
+export const getDefaultState = () => ({
   count: 0,
   items: [],
-};
+});
 
 const getters = {
   isCountZero: state => state.count === 0,
@@ -49,4 +49,4 @@ const actions = {
   },
 };
 
-export default { namespaced: true, state, getters, mutations, actions };
+export default { namespaced: true, state: getDefaultState(), getters, mutations, actions };
