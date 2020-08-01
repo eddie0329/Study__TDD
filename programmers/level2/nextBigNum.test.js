@@ -1,4 +1,4 @@
-import { solution } from "./다음 큰 숫자";
+import { solution } from "./nextBigNum";
 
 describe("다음 큰 숫자 test", () => {
   describe("solution test", () => {
