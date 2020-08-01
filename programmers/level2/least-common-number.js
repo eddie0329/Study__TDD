@@ -7,11 +7,10 @@ export const getLCN = (a, b) => {
   let tempA = a;
   let tempB = b;
   let tempR;
-  while (b < 0) {
-    tempR = tempA % tempB;
-    tempA = tempB;
-    tempB = tempR;
-  }
+  tempR = tempA % tempB;
+  tempA = tempB;
+  tempB = tempR;
+  console.log(tempR);
   return (a * b) / tempR;
 };
 
@@ -20,6 +19,5 @@ export const getLCN = (a, b) => {
  * @param {array} numbers
  */
 export const solution = (numbers) => {
-  numbers.sort((a, b) => b - a);
-  console.log(numbers);
+  // numbers.sort((a, b) => b - a);
 };
