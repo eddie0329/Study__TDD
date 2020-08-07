@@ -1,12 +1,12 @@
-import { isMinusOne, solution } from "./체육복";
+import { isNotFound, solution } from "./체육복";
 
 describe("체육복 test", () => {
-  describe('isMinusOne', () => {
+  describe('isNotFound', () => {
     it('should be true', () => {
-      expect(isMinusOne(-1)).toBeTruthy();
+      expect(isNotFound(-1)).toBeTruthy();
     });
     it('should be false', () => {
-      expect(isMinusOne(4)).toBeFalsy();
+      expect(isNotFound(4)).toBeFalsy();
     });
   });
 
