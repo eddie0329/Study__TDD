@@ -1,6 +1,15 @@
-import { solution } from "./체육복";
+import { isMinusOne, solution } from "./체육복";
 
 describe("체육복 test", () => {
+  describe('isMinusOne', () => {
+    it('should be true', () => {
+      expect(isMinusOne(-1)).toBeTruthy();
+    });
+    it('should be false', () => {
+      expect(isMinusOne(4)).toBeTruthy();
+    });
+  });
+
   describe("solution test", () => {
     it("test1", () => {
       expect(solution(5, [2, 4], [1, 3, 5])).toBe(5);
