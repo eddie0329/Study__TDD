@@ -7,7 +7,7 @@
     <br />
     <hr />
     <div>{{ items }}</div>
-    <button @click="fetchItems">FETCH!!</button>
+    <button class="fetchBtn" @click="fetchItems">FETCH!!</button>
   </div>
 </template>
 
@@ -27,4 +27,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.fetchBtn {
+  color: red;
+  background-color: aquamarine;
+}
+</style>
