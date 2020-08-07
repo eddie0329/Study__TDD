@@ -39,13 +39,22 @@ describe("체육복 test", () => {
 
   describe("filterIdentical", () => {
     it("test1", () => {
-      expect([3, 4], [4, 5]).toEqual({ lost: [3], reserve: [5] });
+      expect(filterIdentical([3, 4], [4, 5])).toEqual({
+        lost: [3],
+        reserve: [5],
+      });
     });
     it("test2", () => {
-      expect([3, 9, 10], [3, 8, 9]).toEqual({ lost: [10], reserve: [8] });
+      expect(filterIdentical([3, 9, 10], [3, 8, 9])).toEqual({
+        lost: [10],
+        reserve: [8],
+      });
     });
     it("test3", () => {
-      expect([2, 3, 4], [3, 4, 5]).toEqual({ lost: [2], reserve: [5] });
+      expect(filterIdentical([2, 3, 4], [3, 4, 5])).toEqual({
+        lost: [2],
+        reserve: [5],
+      });
     });
   });
 });
