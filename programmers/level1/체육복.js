@@ -1,8 +1,10 @@
+const NOT_FOUND = -1;
+
 /**
  * 
  * @param {number} num 
  */
-export const isMinusOne = (num) => num === -1;
+export const isNotFound = (index) => index === NOT_FOUND;
 
 /**
  * 
@@ -13,7 +15,7 @@ export const isMinusOne = (num) => num === -1;
 export const solution = (n, lost, reserve) => {
   const filteredLost = lost.filter(l => {
     const findIdentical = reserve.findIndex(r => r === l);
-    if (isMinusOne(findIdentical)) {
+    if (isNotFound(findIdentical)) {
       return true;
     } else {
       reserve.splice(findIdentical, 1);
@@ -22,9 +24,9 @@ export const solution = (n, lost, reserve) => {
   });
   filteredLost.forEach((l) => {
     const findBorrowBelow = reserve.findIndex(r => r === l - 1);
-    if (isMinusOne(findBorrowBelow)) {
+    if (isNotFound(findBorrowBelow)) {
       const findBorrowUpper = reserve.findIndex(r => r === l + 1);
-      if (isMinusOne(findBorrowUpper)) {
+      if (isNotFound(findBorrowUpper)) {
         n -= 1;
       } else {
         reserve.splice(findBorrowUpper, 1);
