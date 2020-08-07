@@ -1,4 +1,5 @@
-import { fetchData } from '@/api/todo-service';
+// import { fetchData } from '@/api/todo-service';
+import { fetchData } from '../../api/todo-service';
 
 export const getDefaultState = () => ({
   count: 0,
@@ -11,10 +12,20 @@ const getters = {
 
 // mutations type
 
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
 const SET_COUNT_VALUE = 'SET_COUNT_VALUE';
 const SET_ITEMS = 'SET_ITEMS';
+
+export const getDefaultMutations = () => ({
+  [INCREMENT](state) {
+    state.count += 1;
+  },
+
+  [DECREMENT](state) {
+    state.count -= 1;
+  },
+});
 
 const mutations = {
   [INCREMENT](state) {
