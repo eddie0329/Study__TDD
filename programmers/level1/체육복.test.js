@@ -6,7 +6,7 @@ describe("체육복 test", () => {
       expect(isMinusOne(-1)).toBeTruthy();
     });
     it('should be false', () => {
-      expect(isMinusOne(4)).toBeTruthy();
+      expect(isMinusOne(4)).toBeFalsy();
     });
   });
 

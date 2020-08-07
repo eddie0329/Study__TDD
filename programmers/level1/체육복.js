@@ -1,5 +1,12 @@
 /**
  * 
+ * @param {number} num 
+ */
+export const isMinusOne = (num) => num === -1;
+
+
+/**
+ * 
  * @param {number} n 
  * @param {array} lost 
  * @param {array} reserve 
