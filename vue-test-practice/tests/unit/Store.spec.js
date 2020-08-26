@@ -66,8 +66,10 @@ describe('Async actions test', () => {
     it('get items from mock', async () => {
       fetchData.mockResolvedValue(mockItems);
       const commit = jest.fn();
-      await FETCH_ITEMS({ commit });
+      const dispatch = jest.fn();
+      await FETCH_ITEMS({ commit, dispatch });
       expect(commit).toHaveBeenCalledWith('SET_ITEMS', mockItems.data);
+      expect(dispatch).toBeCalledTimes(1);
     });
   });
 });

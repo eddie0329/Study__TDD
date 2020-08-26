@@ -54,9 +54,10 @@ const actions = {
     commit(SET_COUNT_VALUE, countValue);
   },
 
-  async [FETCH_ITEMS]({ commit }) {
+  async [FETCH_ITEMS]({ commit, dispatch }) {
     const response = await fetchData();
     commit(SET_ITEMS, response.data);
+    dispatch(CHANGE_COUNT_VALUE, 0);
   },
 };
 
