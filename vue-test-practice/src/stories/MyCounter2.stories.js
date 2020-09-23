@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/vue';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import MyCounter2 from '../components/MyCounter2';
-import Vuex from 'vuex';
+import { createMockStore } from './utils';
 
 // const counter = {
 //   namespaced: true,
@@ -27,12 +27,5 @@ storiesOf('MyCounter2', module)
         <MyCounter2 />
       </div>
     `,
-    store: new Vuex.Store({
-      modules: {
-        counter: {
-          namespaced: true,
-          state: { count: 0 },
-        },
-      },
-    }),
+    store: createMockStore(['counter'], [{ count: 0 }]),
   }));
