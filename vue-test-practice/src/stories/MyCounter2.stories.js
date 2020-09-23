@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/vue';
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import MyCounter2 from '../components/MyCounter2';
 import Vuex from 'vuex';
 
@@ -13,11 +13,17 @@ import Vuex from 'vuex';
 storiesOf('MyCounter2', module)
   .addDecorator(withKnobs)
   .add('Default MyCounter2', () => ({
+    props: {
+      text: {
+        default: text('Text', 'HELLO'),
+      },
+    },
     components: {
       MyCounter2,
     },
     template: `
       <div>
+        <div>{{ text }}</div>
         <MyCounter2 />
       </div>
     `,
