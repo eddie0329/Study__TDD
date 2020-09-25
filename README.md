@@ -30,3 +30,4 @@ After running unit test, searching test file by press `p` with regular expressio
 
 This app installed package call `jest-chain` for conveniently testing. Refer [jest-chain-api](https://www.npmjs.com/package/jest-chain)
 
+You can also see personal note on [Eddie Sunny's Blog](https://eddie-sunny.tistory.com/).
