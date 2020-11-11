@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>{{ count }}</h2>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+    <button id="incBtn" @click="increment">+</button>
+    <button id="decBtn" @click="decrement">-</button>
     <br />
     <br />
     <hr />
