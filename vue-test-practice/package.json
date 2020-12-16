@@ -21,6 +21,7 @@
     "jest": "^26.1.0",
     "jest-image-snapshot": "^4.0.2",
     "jest-puppeteer": "^4.4.0",
+    "lodash": "^4.17.20",
     "puppeteer": "^5.0.0",
     "start-server-and-test": "^1.11.0",
     "vue": "^2.6.11",
