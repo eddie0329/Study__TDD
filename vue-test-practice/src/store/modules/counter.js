@@ -48,8 +48,24 @@ const mutations = {
 // actions type
 const CHANGE_COUNT_VALUE = 'CHANGE_COUNT_VALUE';
 export const FETCH_ITEMS = 'FETCH_ITEMS';
+const TEST_ACTION = 'TEST_ACTION';
+const INC = 'INC';
+const DEC = 'DEC';
 
 const actions = {
+  async [TEST_ACTION]({ dispatch }) {
+    await dispatch(INC);
+    await dispatch(DEC);
+  },
+
+  [INC]({ commit }) {
+    commit(INCREMENT);
+  },
+
+  [DEC]({ commit }) {
+    commit(DECREMENT);
+  },
+
   [CHANGE_COUNT_VALUE]({ commit }, countValue) {
     commit(SET_COUNT_VALUE, countValue);
   },

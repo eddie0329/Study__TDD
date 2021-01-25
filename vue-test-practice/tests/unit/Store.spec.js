@@ -73,3 +73,19 @@ describe('Async actions test', () => {
     });
   });
 });
+
+describe('action test', () => {
+  const { TEST_ACTION } = actions;
+  it('test', async () => {
+    const commit = jest.fn();
+    const dispatch = jest.fn();
+
+    dispatch.mockImplementation(actionName => {
+      actions[actionName]({ commit });
+    });
+
+    await TEST_ACTION({ dispatch });
+    expect(commit).toHaveBeenCalledWith('INCREMENT');
+    expect(commit).toHaveBeenCalledWith('DECREMENT');
+  });
+});
